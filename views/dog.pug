@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  - var results = [{"dog_name":"snoopy","dog_breed":"chowchow","dog_cost":"900","dog_color":"brown"},{"dog_name":"Luna","dog_breed":"great dane","dog_cost":"300","dog_color":"white"},{"dog_name":"Lucy","dog_breed":"poodle","dog_cost":"500","dog_color":"black"}];
+  div(class="container-fluid")
+    div(class="row")
+    each item in results
+      div(class="col-sm-2") dog name:#{item.dog_name}, dog breed:#{item.dog_breed}, dog cost:#{item.dog_cost}, dog color:#{item.dog_color}
+  br
+  h4= 'Bonus- Click on below for getting price'
+  div(class="container-fluid")
+    each dog ,index in results
+      div(class="row", onclick=`buy(${index})`)
+        div(class="col-sm-2") <br>dog  #{index}: #{dog.dog_name} breed:#{dog.dog_breed} cost:#{dog.dog_cost} color:#{dog.dog_color}
+
+  script. 
+        function buy(price){
+          alert('You purchased item ' + price)
+        }
