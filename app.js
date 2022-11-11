@@ -7,9 +7,7 @@ require('dotenv').config();
 const connectionString =  
 process.env.MONGO_CON 
 mongoose = require('mongoose'); 
-mongoose.connect(connectionString,  
-{useNewUrlParser: true, 
-useUnifiedTopology: true});
+mongoose.connect(connectionString,  {useNewUrlParser: true, useUnifiedTopology: true});
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dogRouter = require('./routes/dog');
