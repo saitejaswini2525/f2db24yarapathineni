@@ -1,0 +1,57 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let dogid = toShow._id 
+    - let dog_name = toShow.dog_name 
+    - let dog_breed = toShow.dog_breed 
+    - let dog_cost = toShow.dog_cost 
+    - let dog_color = toShow.dog_color 
+    - let actionid = "/resource/dog/" + dogid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='dogAttr mr-3') Dog ID is: 
+        div #{dogid} 
+      div.row 
+        div(class='dogAttr mr-3') Dog Name  is: 
+        div #{dog_name} 
+      div.row 
+        div(class='dogAttr mr-3') Dog Breed is: 
+        div #{dog_breed} 
+      div.row 
+        div(class='dogAttr mr-3') Dog Cost is: 
+        div #{dog_cost}
+      div.row 
+        div(class='dogAttr mr-3') Dog Color  is: 
+        div #{dog_color} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the costume collection 
+      window.location.href='/costumes' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      // Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/costumes' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

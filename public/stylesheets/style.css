@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+.dogAttr { 
+  background-color: aquamarine; 
+  width: 120px; 
+} 
+#DogForm{
+  background-color:yellow;
+  width: 300px;
+}
+h1{
+  color: cornflowerblue;
+  font-family: 'Times New Roman', Times, serif;
+}
