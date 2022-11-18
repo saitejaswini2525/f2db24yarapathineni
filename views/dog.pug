@@ -4,9 +4,11 @@ block content
   h1= title
   - var results = results ;
   div(class="container-fluid")
-    div(class="row")
+    div(class="row m-1")
     each item in results
+      - let destination = `dispatch(\"/dog/update?id=${item._id}\")`
       div(class="col-sm-2") dog name:#{item.dog_name}, dog breed:#{item.dog_breed}, dog cost:#{item.dog_cost}, dog color:#{item.dog_color}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
   br
   h4= 'Bonus- Click on below for getting price'
   div(class="container-fluid")
@@ -18,3 +20,6 @@ block content
         function buy(price){
           alert('You purchased item ' + price)
         }
+        function dispatch(path){ 
+          window.location.href=path 
+        } 

@@ -5,16 +5,15 @@ block content
   if(toShow == null)
      h2 No instance to display 
   else 
- 
-        - let dogid = toShow._id 
-        - let dog_name = toShow.dog_name 
-        - let dog_breed = toShow.dog_breed 
-        - let dog_cost = toShow.dog_cost
-        - let dog_color = toShow.dog_color 
+    - let dogid = toShow._id 
+    - let dog_name = toShow.dog_name 
+    - let dog_breed = toShow.dog_breed 
+    - let dog_cost = toShow.dog_cost
+    - let dog_color = toShow.dog_color 
     
-        div.row(class='mb-2') 
-            div.mr-1 ID is 
-            div #{dogid} 
+    div.row(class='mb-2') 
+        div.mr-1 ID is 
+        div #{dogid} 
         - let actionid = "/resource/dog/" + dogid 
         form(id='DogForm', action= actionid, method="PUT") 
             div.form-group 
