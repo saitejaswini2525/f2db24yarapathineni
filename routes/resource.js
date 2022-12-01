@@ -3,7 +3,8 @@ var router = express.Router();
 
 // Require controller modules. 
 var api_controller = require('../controllers/api'); 
-var dog_controller = require('../controllers/dog'); 
+var dog_controller = require('../controllers/dog');
+const dog = require('../models/dog');
  
 /// API ROUTE /// 
  
